@@ -1,0 +1,442 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+  <title>JFL IT -JFLbilling — Smart Billing & Inventory</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    :root{
+      --bg:#0f1724; --card:#0b1220; --accent:#00d1b2; --muted:#94a3b8;
+    }
+    html,body{height:100%;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;}
+    body{background:linear-gradient(180deg,#071226 0%, #071a2b 50%, #071226 100%);color:#e6eef6;}
+    /* Header */
+    .navbar{background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));backdrop-filter: blur(6px);}
+    .brand{font-weight:800;letter-spacing:0.4px;color:var(--accent)}
+
+    /* Hero */
+    .hero{min-height:90vh;display:flex;align-items:center}
+    .hero .lead{color:var(--muted)}
+    .cta-btn{background:linear-gradient(90deg,var(--accent),#3dd7b1);border:none}
+
+    /* Floating shapes */
+    .shape{position:absolute;filter:blur(36px);opacity:.14;transform:translate3d(0,0,0);pointer-events:none}
+    .shape.s1{width:360px;height:360px;background:#00d1b2;border-radius:50%;top:8%;right:6%}
+    .shape.s2{width:260px;height:260px;background:#4f46e5;border-radius:48%;bottom:6%;left:6%}
+
+    /* Feature cards */
+    .feature-card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.03);padding:28px;border-radius:14px;transition:transform .35s, box-shadow .35s}
+    .feature-card:hover{transform:translateY(-8px);box-shadow:0 12px 40px rgba(2,6,23,0.6)}
+
+    /* Counters */
+    .counter{font-size:2.25rem;font-weight:700;color:#fff}
+    .muted{color:var(--muted)}
+
+    /* Pricing */
+    .price-card{border-radius:14px;padding:28px;background:linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.03)}
+
+    /* Footer */
+    footer{padding:48px 0;background:transparent;color:var(--muted)}
+
+    /* Animations */
+    .reveal{opacity:0;transform:translateY(20px);transition:opacity .6s ease, transform .6s ease}
+    .reveal.visible{opacity:1;transform:none}
+
+    /* Responsive tweaks */
+    @media (max-width:768px){.hero{min-height:70vh}.shape{display:none}}
+  </style>
+</head>
+<body>
+
+  <!-- Floating shapes -->
+  <div class="shape s1" id="shape1"></div>
+  <div class="shape s2" id="shape2"></div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <div class="container py-2">
+      <a class="navbar-brand brand d-flex align-items-center" href="#">
+        <div class="me-2" style="width:36px;height:36px;border-radius:8px;background:linear-gradient(45deg,#10b981,#06b6d4);display:grid;place-items:center;font-weight:800">J</div>
+        JFL IT
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+          <li class="nav-item"><a class="nav-link" href="#features">Features</a></li>
+          <li class="nav-item"><a class="nav-link" href="#pricing">Pricing</a></li>
+          <li class="nav-item"><a class="nav-link" href="#testimonials">Testimonials</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+          <li class="nav-item ms-3 d-none d-lg-block"><a class="btn btn-sm cta-btn" href="#signup">Get Started</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-7">
+          <h1 class="display-5 fw-bold">JFLbilling — Simple, Fast & Reliable Billing</h1>
+          <p class="lead mt-3">Create invoices, manage stock, and run reports — built for small shops & distributors in Bangladesh. Lightweight, offline-friendly, and designed for speed.</p>
+
+          <div class="d-flex gap-2 mt-4">
+            <a class="btn btn-lg cta-btn me-2" href="#signup"><i class="fa fa-paper-plane me-2"></i>Start Free Trial</a>
+            <a class="btn btn-lg btn-outline-light" href="#features"><i class="fa fa-info-circle me-2"></i>Explore Features</a>
+          </div>
+
+          <!-- counters -->
+          <div class="row mt-5 g-3">
+            <div class="col-6 col-md-4 reveal" data-delay="100">
+              <div class="p-3 rounded-3" style="background:rgba(255,255,255,0.02);">
+                <div class="counter" data-target="12000">0</div>
+                <div class="muted small">Invoices generated</div>
+              </div>
+            </div>
+            <div class="col-6 col-md-4 reveal" data-delay="200">
+              <div class="p-3 rounded-3" style="background:rgba(255,255,255,0.02);">
+                <div class="counter" data-target="450">0</div>
+                <div class="muted small">Active shops</div>
+              </div>
+            </div>
+            <div class="col-12 col-md-4 reveal" data-delay="300">
+              <div class="p-3 rounded-3" style="background:rgba(255,255,255,0.02);">
+                <div class="counter" data-target="99">0</div>
+                <div class="muted small">% Uptime</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="col-lg-5 mt-5 mt-lg-0">
+          <div class="card p-4" style="border-radius:20px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.03)">
+            <div class="d-flex align-items-center justify-content-between mb-3">
+              <div>
+                <small class="muted">Live demo</small>
+                <h5 class="mb-0">Quick invoice</h5>
+              </div>
+              <div class="text-end muted small">v2.3</div>
+            </div>
+
+            <form id="quickInvoice">
+              <div class="mb-2">
+                <input class="form-control form-control-sm" placeholder="Customer name" required>
+              </div>
+              <div class="mb-2 row g-2">
+                <div class="col-7"><input class="form-control form-control-sm" placeholder="Item" required></div>
+                <div class="col-3"><input class="form-control form-control-sm" placeholder="Qty" type="number" min="1" value="1"></div>
+                <div class="col-2"><input class="form-control form-control-sm" placeholder="Price" type="number" min="0" value="0"></div>
+              </div>
+              <div class="d-flex justify-content-between align-items-center mt-2">
+                <div class="muted small">Total:</div>
+                <div class="fw-bold">৳ <span id="quickTotal">0</span></div>
+              </div>
+              <div class="mt-3 d-flex gap-2">
+                <button class="btn btn-sm cta-btn flex-grow-1" type="submit">Create Invoice</button>
+                <button class="btn btn-sm btn-outline-light" type="button" id="demoReset">Reset</button>
+              </div>
+            </form>
+
+            <div class="mt-3 muted small">Tip: This demo calculates simple product total only.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- FEATURES -->
+  <section id="features" class="py-6">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="fw-bold">What JFLbilling gives you</h2>
+        <p class="muted">Everything you need to run billing, manage stock, and keep track of payments — in one place.</p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4 reveal" data-delay="100">
+          <div class="feature-card h-100">
+            <h5><i class="fa fa-file-invoice-dollar me-2 text-warning"></i> Quick Invoicing</h5>
+            <p class="muted small mb-0">Create and print invoices in seconds with customizable templates.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4 reveal" data-delay="200">
+          <div class="feature-card h-100">
+            <h5><i class="fa fa-boxes-stacked me-2 text-info"></i> Stock Management</h5>
+            <p class="muted small mb-0">Track product stock, set minimum levels and get alerts when you run low.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4 reveal" data-delay="300">
+          <div class="feature-card h-100">
+            <h5><i class="fa fa-chart-line me-2 text-success"></i> Sales Reports</h5>
+            <p class="muted small mb-0">Daily, monthly and yearly reports with export to CSV and PDF.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4 reveal" data-delay="400">
+          <div class="feature-card h-100">
+            <h5><i class="fa fa-users me-2 text-primary"></i> Customer Ledger</h5>
+            <p class="muted small mb-0">Maintain customer balances and credit limits with clear statements.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4 reveal" data-delay="500">
+          <div class="feature-card h-100">
+            <h5><i class="fa fa-mobile-screen-button me-2 text-danger"></i> Mobile-ready</h5>
+            <p class="muted small mb-0">Works well on tablets and phones — use on the shop counter or on the go.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4 reveal" data-delay="600">
+          <div class="feature-card h-100">
+            <h5><i class="fa fa-shield-halved me-2 text-secondary"></i> Secure & Local</h5>
+            <p class="muted small mb-0">Option to host locally or on your VPS with encrypted backups.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section id="pricing" class="py-6 bg-transparent">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="fw-bold">Pricing that fits</h2>
+        <p class="muted">Start free, upgrade when you're ready. BDT pricing and local payment options supported.</p>
+      </div>
+
+      <div class="row g-4 align-items-stretch">
+        <div class="col-md-6 col-lg-4 reveal" data-delay="100">
+          <div class="price-card h-100 text-center">
+            <div class="badge bg-transparent text-success mb-3">Starter</div>
+            <h3 class="fw-bold">Free</h3>
+            <div class="muted mb-3">Basic invoicing, single shop, community support</div>
+            <ul class="list-unstyled small muted">
+              <li>✅ 50 invoices / month</li>
+              <li>✅ Stock tracking (limited)</li>
+              <li>✅ Local CSV export</li>
+            </ul>
+            <div class="mt-4"><a class="btn btn-sm cta-btn" href="#signup">Select</a></div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 reveal" data-delay="200">
+          <div class="price-card h-100 text-center border-2" style="border-color:rgba(255,255,255,0.06)">
+            <div class="badge bg-transparent text-warning mb-3">Popular</div>
+            <h3 class="fw-bold">৳ 599 / month</h3>
+            <div class="muted mb-3">Multiple shops, priority email support</div>
+            <ul class="list-unstyled small muted">
+              <li>✅ Unlimited invoices</li>
+              <li>✅ Supplier & customer ledgers</li>
+              <li>✅ PDF invoices & branding</li>
+            </ul>
+            <div class="mt-4"><a class="btn btn-sm cta-btn" href="#signup">Get Started</a></div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 reveal" data-delay="300">
+          <div class="price-card h-100 text-center">
+            <div class="badge bg-transparent text-danger mb-3">Enterprise</div>
+            <h3 class="fw-bold">Custom</h3>
+            <div class="muted mb-3">On-premise install, custom integrations & training</div>
+            <ul class="list-unstyled small muted">
+              <li>✅ Dedicated support</li>
+              <li>✅ Custom reports</li>
+              <li>✅ API & integration</li>
+            </ul>
+            <div class="mt-4"><a class="btn btn-sm btn-outline-light" href="#contact">Contact Sales</a></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section id="testimonials" class="py-6">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="fw-bold">What shop owners say</h2>
+        <p class="muted">Real feedback from users across Bangladesh.</p>
+      </div>
+
+      <div id="testiCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="row justify-content-center">
+              <div class="col-md-8">
+                <div class="card p-4 price-card">
+                  <div class="d-flex gap-3 align-items-center">
+                    <img src="https://i.pravatar.cc/64?u=1" class="rounded-circle" alt=""> 
+                    <div>
+                      <strong>Rafiq H.</strong>
+                      <div class="muted small">Gulshan, Dhaka</div>
+                    </div>
+                  </div>
+                  <p class="mt-3 muted small">"JFLbilling made our shop faster. Invoices print instantly and stock counts match — solid app for small business."</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-item">
+            <div class="row justify-content-center">
+              <div class="col-md-8">
+                <div class="card p-4 price-card">
+                  <div class="d-flex gap-3 align-items-center">
+                    <img src="https://i.pravatar.cc/64?u=2" class="rounded-circle" alt=""> 
+                    <div>
+                      <strong>Mina S.</strong>
+                      <div class="muted small">Chittagong</div>
+                    </div>
+                  </div>
+                  <p class="mt-3 muted small">"Love the mobile-ready UI. I use it on my tablet while finishing orders — very practical."</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#testiCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#testiCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ & CONTACT -->
+  <section id="contact" class="py-6 bg-transparent">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-6 reveal" data-delay="100">
+          <h4 class="fw-bold">Frequently asked</h4>
+          <div class="accordion mt-3" id="faq">
+            <div class="accordion-item">
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">Can I print invoices?</button></h2>
+              <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faq"><div class="accordion-body muted small">Yes — print-friendly templates are included. Export to PDF is also supported.</div></div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">Is there backup?</button></h2>
+              <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faq"><div class="accordion-body muted small">You can export backups to CSV and schedule downloads. On-premise installs can do local DB backups.</div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6 reveal" data-delay="200">
+          <h4 class="fw-bold">Contact us</h4>
+          <form id="contactForm" class="mt-3">
+            <div class="mb-2"><input class="form-control" placeholder="Your name" required></div>
+            <div class="mb-2"><input class="form-control" placeholder="Email or phone" required></div>
+            <div class="mb-2"><textarea class="form-control" rows="4" placeholder="Message"></textarea></div>
+            <div class="d-flex gap-2"><button class="btn cta-btn" type="submit">Send Message</button><button class="btn btn-outline-light" type="button">Call</button></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SIGNUP CTA -->
+  <section id="signup" class="py-6">
+    <div class="container text-center">
+      <div class="p-4 price-card d-inline-block" style="max-width:860px;">
+        <h3 class="fw-bold">Get JFLbilling for your shop</h3>
+        <p class="muted">Sign up and get 14 days free. No credit card required.</p>
+        <form class="row g-2 justify-content-center" id="signupForm">
+          <div class="col-12 col-md-4"><input class="form-control" placeholder="Shop name" required></div>
+          <div class="col-12 col-md-4"><input class="form-control" placeholder="Phone or email" required></div>
+          <div class="col-12 col-md-4 d-grid"><button class="btn cta-btn" type="submit">Start free</button></div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <div class="d-flex align-items-center gap-3">
+            <div style="width:44px;height:44px;border-radius:10px;background:linear-gradient(45deg,#10b981,#06b6d4);display:grid;place-items:center;font-weight:800">J</div>
+            <div>
+              <div class="fw-bold">JFLbilling</div>
+              <div class="muted small">Smart billing for small businesses</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 text-md-end mt-3 mt-md-0 muted">© <span id="year"></span> JFLbilling — Built with ❤️</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // small helpers
+    const revealOnScroll = () =>{
+      document.querySelectorAll('.reveal').forEach(el=>{
+        const rect = el.getBoundingClientRect();
+        const delay = parseInt(el.dataset.delay||0);
+        if(rect.top < window.innerHeight - 80){
+          setTimeout(()=>el.classList.add('visible'), delay);
+        }
+      })
+    }
+
+    // counters
+    function animateCounters(){
+      document.querySelectorAll('.counter').forEach(c=>{
+        const target = +c.dataset.target;
+        const step = Math.max(1, Math.floor(target/120));
+        let n = 0;
+        const id = setInterval(()=>{
+          n += step;
+          if(n>=target){c.textContent = target; clearInterval(id)} else c.textContent = n;
+        },12);
+      })
+    }
+
+    // quick invoice demo
+    $('#quickInvoice').on('input change', function(){
+      const qty = Number($(this).find('input[type=number]').first().val()||0);
+      const price = Number($(this).find('input[type=number]').last().val()||0);
+      $('#quickTotal').text(qty * price);
+    });
+
+    $('#quickInvoice').on('submit', function(e){e.preventDefault();alert('Invoice created (demo)');});
+    $('#demoReset').click(()=>{ $('#quickInvoice')[0].reset(); $('#quickTotal').text('0'); });
+
+    // contact & signup form (demo)
+    $('#contactForm, #signupForm').on('submit', function(e){e.preventDefault();alert('Thanks — we will contact you soon (demo)'); $(this)[0].reset();});
+
+    // reveal on load and on scroll
+    $(window).on('load', ()=>{ revealOnScroll(); animateCounters(); $('#year').text(new Date().getFullYear()); });
+    window.addEventListener('scroll', revealOnScroll);
+
+    // subtle parallax shapes
+    document.addEventListener('mousemove', function(e){
+      const w = window.innerWidth, h = window.innerHeight;
+      const x = (e.clientX - w/2)/w; const y=(e.clientY - h/2)/h;
+      document.getElementById('shape1').style.transform = `translate(${x*40}px, ${y*30}px) scale(1.05)`;
+      document.getElementById('shape2').style.transform = `translate(${x*-30}px, ${y*-20}px) scale(1.02)`;
+    });
+
+    // smooth scroll for nav links
+    $('a.nav-link').on('click', function(e){
+      e.preventDefault(); const href = $(this).attr('href'); if(href.startsWith('#')){
+        $('html,body').animate({scrollTop: $(href).offset().top - 70}, 600);
+      }
+    });
+  </script>
+</body>
+</html>
