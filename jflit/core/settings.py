@@ -25,7 +25,13 @@ SECRET_KEY = 'django-insecure-%f^rrn6egd0s#ivrq0$ym_knklb0!cv08asta*@gp-*u_0(n&=
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'jflbilling.onrender.com',
+    'localhost',
+    '127.0.0.1',
+    'jflit.com',
+    'www.jflit.com',
+]
 
 
 # Application definition
@@ -120,3 +126,4 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
